@@ -5,7 +5,10 @@ import { ReactComponent as Twitter } from "../src/assets/icons/twitter.svg"
 import { ReactComponent as Whatsapp } from "../src/assets/icons/whatsapp.svg"
 import "./App.css"
 
+import useQuoteTransform from "./hooks/quoteTransform"
+
 function App() {
+  const { quote, author } = useQuoteTransform("http://localhost:4000/quotes")
   return (
     <>
       <header>
@@ -16,10 +19,9 @@ function App() {
           <Quotation />
           <div className="quote">
             <p>
-              In the end, we will remember not the words of our enemies, but the
-              silence of our friends.
+              {quote}
             </p>
-            <span>- Martin Luther King Jr.</span>
+            <span>- {author}</span>
           </div>
           <div className="bottom-navigation">
             <div>
