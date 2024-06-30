@@ -1,26 +1,36 @@
+import { useState } from 'react'
 import './index.scss'
 
-const ResultBox = () => {
+interface Result {
+  words : number;
+  characters : number;
+  sentences : number;
+  paragraphs : number;
+  pronouns : number;
+}
+
+const ResultBox = ({result} : {result : Result}) => {
+  const {words ,characters, sentences, paragraphs, pronouns } = result
   const resultBar = [
     {
       title: 'Words',
-      value: 0,
+      value: words,
     },
     {
       title: 'Characters',
-      value: 0,
+      value: characters,
     },
     {
       title: 'Sentences',
-      value: 0,
+      value: sentences,
     },
     {
       title: 'Paragraphs ',
-      value: 0,
+      value: paragraphs,
     },
     {
       title: 'Pronouns',
-      value: 0,
+      value: pronouns,
     },
   ]
 
